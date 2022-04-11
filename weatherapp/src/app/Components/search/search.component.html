@@ -1,0 +1,124 @@
+<form [formGroup]="weatherForm" (submit)="getWeatherData()">
+    <mat-card class="example-card">
+        <app-spinner></app-spinner>
+        <mat-card-content>
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="cityName">
+                <button mat-icon-button matSuffix type="submit">
+                    <mat-icon>search</mat-icon>
+                </button>
+                <mat-hint *ngIf="weatherForm.touched && weatherForm.invalid" class="mat-error">City Name is Required
+                </mat-hint>
+            </mat-form-field>
+
+            <div class="row width-full m-0" *ngIf="noFound">
+                <div class="col text-center" style="font-size: 30px; color: gray;">
+                    City Not Found
+                </div>
+            </div>
+            
+            <ng-container *ngIf="weatherData && !noFound">
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Latitude</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.coord.lat}}
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Longitude</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.coord.lon}}
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Cloudiness</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.clouds.all}}&nbsp;%
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Wind Speed</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.wind.speed}}&nbsp;m/s
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Visibility</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.visibility}}&nbsp;m/s
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Weather</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.weather[0].main}}&nbsp;
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Weather Conditions</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.weather[0].description}}&nbsp;
+                    </div>
+                </div>
+
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Humidity</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.main.humidity}}&nbsp;%
+                    </div>
+                </div>
+                <div class="row width-full m-0">
+                    <div class="col p-1">
+                        <strong>Pressure</strong>
+                    </div>
+                    <div class="col-7 p-0 pt-1">
+                        {{weatherData.main.pressure}}&nbsp;hPa
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row mt-4">
+                        <div class="col text-center" style="font-size: xx-large; font-weight: 100;">
+                            {{weatherData.main.temp_min}}&deg;C
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center mt-2">
+                            <strong>Min</strong>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col text-center" style="font-size: xx-large; font-weight: 100;">
+                            {{weatherData.main.temp_max}}&deg;C
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center mt-2">
+                            <strong>Max</strong>
+                        </div>
+                    </div>
+                </div>
+                
+               
+
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</form>

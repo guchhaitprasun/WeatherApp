@@ -1,0 +1,17 @@
+
+<div *ngIf="weatherData">
+    <div class="row" style="width: 100%; height: 92vh; position: absolute;">
+        <div class="col" style="display: flex; justify-content: center; top: 12vh;">
+            <div class="weather-icon">
+                <div class="icon">
+                    <img id="wicon" [src]="weatherIcon" alt="Weather icon" style="width: 60%;">
+                </div>
+                <div class="row">
+                    <div class="col text-center" style="color: #6a6a6a; font-size: 70px;">
+                        {{weatherData.main.temp}}&deg;C
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

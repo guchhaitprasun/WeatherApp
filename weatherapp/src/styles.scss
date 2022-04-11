@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.weather-bg{
+    background-image: url(assets/denys-nevozhai-duo-xV0TU7s-unsplash.jpg);
+    min-height: 10%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size:cover;
+    overflow-y: hidden
+}

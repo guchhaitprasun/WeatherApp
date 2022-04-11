@@ -1,0 +1,12 @@
+.spinner-class{
+    justify-content: center;
+    display: flex;
+    // position: absolute;
+    top: 40vh;
+}
+
+.spinner-row{
+    width: 100%; height: 90%;
+    position: absolute;
+    z-index: 9999;
+}
