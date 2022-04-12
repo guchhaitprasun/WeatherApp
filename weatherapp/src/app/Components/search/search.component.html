@@ -11,6 +11,13 @@
                 <mat-hint *ngIf="weatherForm.touched && weatherForm.invalid" class="mat-error">City Name is Required
                 </mat-hint>
             </mat-form-field>
+            <!-- <div class="row">
+                <div class="col">
+                    <button mat-raised-button color="primary" style="width: 100%;">
+                        Get your current location
+                    </button>
+                </div>
+            </div> -->
 
             <div class="row width-full m-0" *ngIf="noFound">
                 <div class="col text-center" style="font-size: 30px; color: gray;">
@@ -73,15 +80,6 @@
                     </div>
                     <div class="col-7 p-0 pt-1">
                         {{weatherData.weather[0].description}}&nbsp;
-                    </div>
-                </div>
-
-                <div class="row width-full m-0">
-                    <div class="col p-1">
-                        <strong>Humidity</strong>
-                    </div>
-                    <div class="col-7 p-0 pt-1">
-                        {{weatherData.main.humidity}}&nbsp;%
                     </div>
                 </div>
                 <div class="row width-full m-0">
